@@ -1,13 +1,11 @@
 import java.util.ArrayList;
-import java.util.Stack;
 
 class Solution {
     public int[] solution(int[] progresses, int[] speeds) {
         
         ArrayList<Integer> days = new ArrayList<>();
         ArrayList<Integer> result = new ArrayList<>();
-        int pre_day = 0;
-        
+
         for(int i = 0; i < progresses.length; i++){
             int remainProgresses = 100 - progresses[i];
             int day = (remainProgresses % speeds[i] == 0) ? remainProgresses / speeds[i] : remainProgresses / speeds[i] + 1;
@@ -34,9 +32,9 @@ class Solution {
                 }
             }
         }
-        System.out.println(days);
-        System.out.println(result);
+        
         int[] answer = result.stream().mapToInt(Integer::intValue).toArray();
+        
         return answer;
     }
 }
